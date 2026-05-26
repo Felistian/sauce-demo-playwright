@@ -1,3 +1,4 @@
+![CI](https://github.com/Felistian/sauce-demo-playwright/actions/workflows/playwright.yml/badge.svg)
 # 🎭 Sauce Demo — Playwright + TypeScript Test Suite
 
 A professional end-to-end test automation suite built with **Playwright** and **TypeScript**, testing the [Sauce Demo](https://www.saucedemo.com) web application and [DummyJSON](https://dummyjson.com) API.
