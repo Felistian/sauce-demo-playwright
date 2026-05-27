@@ -187,19 +187,4 @@ export class BasePage {
         await expect(locator).not.toBeAttached();
     }
 
-    async verifyElementCount(locator: Locator, expectedCount: number): Promise<void> {
-        await expect(locator).toHaveCount(expectedCount);
-    }
-
-    async verifyElementText(locator: Locator, expectedText: string): Promise<void> {
-        await expect(locator).toHaveText(expectedText);
-    }
-
-    async verifyElementVisible(locator: Locator): Promise<void> {
-        await expect(locator).toBeVisible();
-    }
-
-    async verifyElementHidden(locator: Locator): Promise<void> {
-        await expect(locator).toBeHidden();
-    }
 }

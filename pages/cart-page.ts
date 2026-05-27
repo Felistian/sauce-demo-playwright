@@ -1,4 +1,4 @@
-import { Page,Locator,expect } from '@playwright/test';
+import { Page, Locator, expect } from '@playwright/test';
 import { BasePage } from './base-page';
 
 export class CartPage extends BasePage {
@@ -58,7 +58,7 @@ export class CartPage extends BasePage {
     }
 
     async verifyCartItemCount(expectedCount: number): Promise<void> {
-        await this.verifyElementCount(this.cartItems, expectedCount);
+        await expect(this.cartItems).toHaveCount(expectedCount);
     }
 
     async verifyCartIsEmpty(): Promise<void> {
@@ -76,7 +76,7 @@ export class CartPage extends BasePage {
         await expect(this.page.locator('.inventory_details_name')).toHaveText(itemName);
     }
 
-    async verifyCheckoutPageURL(): Promise<void> {  
+    async verifyCheckoutPageURL(): Promise<void> {
         await this.verifyCurrentUrl(/.*checkout.*\.html/);
     }
 }

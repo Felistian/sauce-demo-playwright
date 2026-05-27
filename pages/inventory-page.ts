@@ -89,23 +89,24 @@ export class InventoryPage extends BasePage {
     async verifyInventoryPageLoaded(): Promise<void> {
         await expect(this.pageTitle).toBeVisible();
         await expect(this.sortDropdown).toBeVisible();
-        await this.verifyElementCount(this.inventoryItems, 6);
+        await expect(this.inventoryItems).toHaveCount(6);
     }
 
     async verifyInventoryItemsDisplayed(): Promise<void> {
-        await this.verifyElementCount(this.inventoryItems, 6);
-        await this.verifyElementText(this.itemNames.nth(0), 'Sauce Labs Backpack');
-        await this.verifyElementText(this.itemPrices.nth(0), '$29.99');
-        await this.verifyElementText(this.itemNames.nth(1), 'Sauce Labs Bike Light');
-        await this.verifyElementText(this.itemPrices.nth(1), '$9.99');
-        await this.verifyElementText(this.itemNames.nth(2), 'Sauce Labs Bolt T-Shirt');
-        await this.verifyElementText(this.itemPrices.nth(2), '$15.99');
-        await this.verifyElementText(this.itemNames.nth(3), 'Sauce Labs Fleece Jacket');
-        await this.verifyElementText(this.itemPrices.nth(3), '$49.99');
-        await this.verifyElementText(this.itemNames.nth(4), 'Sauce Labs Onesie');
-        await this.verifyElementText(this.itemPrices.nth(4), '$7.99');
-        await this.verifyElementText(this.itemNames.nth(5), 'Test.allTheThings() T-Shirt (Red)');
-        await this.verifyElementText(this.itemPrices.nth(5), '$15.99');
+        await expect.soft(this.inventoryItems).toHaveCount(6);
+        await expect.soft(this.itemNames.nth(0)).toHaveText('Sauce Labs Backpack');
+        await expect.soft(this.itemNames.nth(0)).toHaveText('Sauce Labs Backpack');
+        await expect.soft(this.itemPrices.nth(0)).toHaveText('$29.99');
+        await expect.soft(this.itemNames.nth(1)).toHaveText('Sauce Labs Bike Light');
+        await expect.soft(this.itemPrices.nth(1)).toHaveText('$9.99');
+        await expect.soft(this.itemNames.nth(2)).toHaveText('Sauce Labs Bolt T-Shirt');
+        await expect.soft(this.itemPrices.nth(2)).toHaveText('$15.99');
+        await expect.soft(this.itemNames.nth(3)).toHaveText('Sauce Labs Fleece Jacket');
+        await expect.soft(this.itemPrices.nth(3)).toHaveText('$49.99');
+        await expect.soft(this.itemNames.nth(4)).toHaveText('Sauce Labs Onesie');
+        await expect.soft(this.itemPrices.nth(4)).toHaveText('$7.99');
+        await expect.soft(this.itemNames.nth(5)).toHaveText('Test.allTheThings() T-Shirt (Red)');
+        await expect.soft(this.itemPrices.nth(5)).toHaveText('$15.99');
     }
 
     async verifyItemsSortedByNameAZ(): Promise<void> {

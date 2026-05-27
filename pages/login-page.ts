@@ -1,4 +1,4 @@
-import { Page,Locator,expect } from "@playwright/test";
+import { Page, Locator, expect } from "@playwright/test";
 import { BasePage } from "./base-page";
 
 export class LoginPage extends BasePage {
@@ -45,9 +45,9 @@ export class LoginPage extends BasePage {
         await this.verifyCurrentUrl(/.*inventory\.html/);
     }
 
-    async verifyLoginFailed(expectedText: string): Promise<void> { 
+    async verifyLoginFailed(expectedText: string): Promise<void> {
         await expect(this.errorMessage).toBeVisible();
-        await this.verifyElementText(this.errorMessage, expectedText);
+        await expect(this.errorMessage).toHaveText(expectedText);
     }
 
     async verifyErrorIsVisible(): Promise<void> {
